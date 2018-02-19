@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>日常--个人成长记录</title>
+</head>
+<body>
+
+{% extends "learning_blogs/base.html" %}
+
+{% block header %}
+    <div class='jumbotron'>
+        <h1 style="color:DarkOrange">日常,记录你的每一天.</h1>
+    </div>
+{% endblock header %}
+
+{% block content %}
+    <h2>
+        <a href="{% url 'users:register' %}">注册账户</a>
+    </h2>
+    <h2>
+        这里是你的个人成长记录，请写下标题.
+    </h2>
+    <h2>
+        无论是生活,工作,还是学习，请写下主要内容.
+    </h2>
+{% endblock content %}
+
+</body>
+</html>

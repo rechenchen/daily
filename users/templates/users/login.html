@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录页面</title>
+</head>
+<body>
+
+{% extends "learning_blogs/base.html" %}
+
+{% load bootstrap3 %}
+{% block header %}
+    <h2>请使用您的账户登录.</h2>
+{% endblock header %}
+
+{% block content %}
+
+    {% if form.errors %}
+        <p>您输入的用户名和密码不匹配，请重新输入!</p>
+    {% endif %}
+
+    <form method="post" action="{% url 'users:login' %}" class="form">
+        {% csrf_token %}
+        <!--{{ form.as_p }}-->
+        {% bootstrap_form form %}
+
+        {% buttons %}
+            <button name="submit" class="btn btn-primary">登录</button>
+        {% endbuttons %}
+        <input type="hidden" name="next" value="{% url 'learning_blogs:index' %}"/>
+    </form>
+{% endblock content %}
+
+</body>
+</html>

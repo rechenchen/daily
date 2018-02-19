@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>编辑内容</title>
+</head>
+<body>
+{% extends "learning_blogs/base.html" %}
+{% block content %}
+    <p><a href="{% url 'learning_blogs:topic' topic.id %}">{{ topic }}</a></p>
+    <p>编辑:</p>
+    <form action="{% url 'learning_blogs:edit_entry' entry.id %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button name="submit">保存</button>
+    </form>
+{% endblock content %}
+</body>
+</html>
